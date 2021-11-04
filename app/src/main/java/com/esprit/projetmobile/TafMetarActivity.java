@@ -14,7 +14,13 @@ public class TafMetarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tafmetar_layout);
 
-        String url = "https://www.getmetar.com/LFPG";
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            String code = extras.getString("key");
+        }
+
+        String url = "https://www.getmetar.com/";
         WebView webview = findViewById(R.id.mywebview);
 
         //webview.setWebViewClient(new MyWebViewClient(this));
