@@ -12,13 +12,16 @@ import android.widget.SearchView;
 public class MainActivity extends AppCompatActivity {
     SearchView search;
     ImageButton sendButton;
-    LinearLayout cdgAirport,orlyAirport;
+    LinearLayout cdgAirport, orlyAirport;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.launch_screen);
+
         search = findViewById(R.id.search);
+        String code = search.getQuery().toString();
         sendButton = findViewById(R.id.send);
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -26,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, MapActivity.class));
             }
         });
+
         cdgAirport = findViewById(R.id.cdgairport);
         cdgAirport.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,11 +37,12 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, MapActivity.class));
             }
         });
+
         orlyAirport = findViewById(R.id.orlyairport);
         orlyAirport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,MapActivity.class));
+                startActivity(new Intent(MainActivity.this, MapActivity.class));
             }
         });
     }
