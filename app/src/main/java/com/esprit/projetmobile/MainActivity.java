@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.SearchView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     SearchView search;
@@ -21,12 +22,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.launch_screen);
 
         search = findViewById(R.id.search);
-        String code = search.getQuery().toString();
+        CharSequence icao = search.getQuery();
         sendButton = findViewById(R.id.send);
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, TafMetarActivity.class).putExtra("key",code));
+                //Toast.makeText(getApplicationContext(),icao,Toast.LENGTH_LONG).show();
+               startActivity(new Intent(MainActivity.this, TafMetarActivity.class).putExtra("icao code",icao));
 
             }
         });
