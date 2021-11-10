@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import org.osmdroid.api.IMapController;
@@ -27,6 +29,14 @@ public class MapActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.map_screen);
 
+
+        ImageButton back = findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MapActivity.this,MainActivity.class));
+            }
+        });
 
         String icao = getIntent().getStringExtra("icaocode");
         String longlat = getIntent().getStringExtra("longlat");
