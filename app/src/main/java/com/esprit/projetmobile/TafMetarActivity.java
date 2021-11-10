@@ -13,13 +13,10 @@ public class TafMetarActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        String icao;
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tafmetar_layout);
 
-        Intent intent = getIntent();
-        icao = intent.getStringExtra("code icao");
+        String icao = getIntent().getStringExtra("icaocode");
 
         /*Bundle extras = getIntent().getExtras();
         if (extras != null) {
@@ -27,8 +24,8 @@ public class TafMetarActivity extends AppCompatActivity {
             //Toast.makeText(getApplicationContext(),icao,Toast.LENGTH_LONG);
         }*/
 
-        Toast.makeText(getApplicationContext(),icao,Toast.LENGTH_LONG).show();
-        String url = "https://www.getmetar.com/"+icao.toString();
+        //Toast.makeText(getApplicationContext(), icao, Toast.LENGTH_LONG).show();
+        String url = "https://www.getmetar.com/" + icao;
 
         WebView webview = findViewById(R.id.mywebview);
 

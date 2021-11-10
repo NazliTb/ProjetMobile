@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Toast.makeText(getApplicationContext(),icao,Toast.LENGTH_LONG).show();
-               startActivity(new Intent(MainActivity.this, TafMetarActivity.class).putExtra("icao code",icao));
+                startActivity(new Intent(MainActivity.this, MapActivity.class).putExtra("icaocode",icao.toString()));
 
             }
         });

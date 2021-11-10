@@ -36,16 +36,19 @@ public class MapActivity extends AppCompatActivity {
         mapController.setZoom(12.0);
         mapController.setCenter(startpoint);
 
+        String icao = getIntent().getStringExtra("icaocode");
+
         ArrayList<OverlayItem> items = new ArrayList<>();
-        OverlayItem airport1 = new OverlayItem("CDG Airport", "Paris Charles de Gaulle Airport", new GeoPoint(49.0097, 2.5480));
-        Drawable m = airport1.getMarker(0);
-        items.add(airport1);
+        //OverlayItem airport1 = new OverlayItem("CDG Airport", "Paris Charles de Gaulle Airport", new GeoPoint(49.0097, 2.5480));
+        //Drawable m = airport1.getMarker(0);
+
+        items.add(new OverlayItem("CDG Airport", "Paris Charles de Gaulle Airport", new GeoPoint(49.0097, 2.5480)));
         items.add(new OverlayItem("Orly Airport", "Paris Orly Airport", new GeoPoint(48.7262, 2.3652)));
 
         ItemizedOverlayWithFocus<OverlayItem> mOverlay = new ItemizedOverlayWithFocus<OverlayItem>(getApplicationContext(), items, new ItemizedIconOverlay.OnItemGestureListener<OverlayItem>() {
             @Override
             public boolean onItemSingleTapUp(int index, OverlayItem item) {
-                startActivity(new Intent(MapActivity.this, TafMetarActivity.class));
+                startActivity(new Intent(MapActivity.this, TafMetarActivity.class).putExtra("icaocode", icao));
                 return true;
             }
 
