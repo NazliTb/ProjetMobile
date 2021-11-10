@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.widget.Toast;
 
 import org.osmdroid.api.IMapController;
 import org.osmdroid.config.Configuration;
@@ -26,6 +27,9 @@ public class MapActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.map_screen);
 
+        String icao = getIntent().getStringExtra("icaocode");
+        Toast.makeText(getApplicationContext(), icao, Toast.LENGTH_LONG).show();
+
         Configuration.getInstance().load(getApplicationContext(), PreferenceManager.getDefaultSharedPreferences(getApplicationContext()));
 
         map = findViewById(R.id.map);
@@ -36,7 +40,6 @@ public class MapActivity extends AppCompatActivity {
         mapController.setZoom(12.0);
         mapController.setCenter(startpoint);
 
-        String icao = getIntent().getStringExtra("icaocode");
 
         ArrayList<OverlayItem> items = new ArrayList<>();
         //OverlayItem airport1 = new OverlayItem("CDG Airport", "Paris Charles de Gaulle Airport", new GeoPoint(49.0097, 2.5480));
