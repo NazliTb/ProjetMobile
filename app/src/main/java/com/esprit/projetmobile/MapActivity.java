@@ -59,7 +59,7 @@ public class MapActivity extends AppCompatActivity {
         map.setBuiltInZoomControls(true); //zoomable
         GeoPoint startpoint = new GeoPoint(Float.parseFloat(latitude), Float.parseFloat(longitude));
         IMapController mapController = map.getController();
-        mapController.setZoom(12.0);
+        mapController.setZoom(14.0);
         mapController.setCenter(startpoint);
 
 

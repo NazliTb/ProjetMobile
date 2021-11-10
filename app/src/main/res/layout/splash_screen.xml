@@ -5,9 +5,22 @@
     android:background="@drawable/bg">
 
     <ImageView
+        android:id="@+id/plane"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:src="@drawable/plane"
         android:layout_centerInParent="true"/>
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/plane"
+        android:text="WeathAir"
+        android:textSize="60dp"
+        android:textColor="@color/colorWhite"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif"
+        android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>

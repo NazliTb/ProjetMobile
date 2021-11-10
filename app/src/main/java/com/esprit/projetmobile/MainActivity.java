@@ -100,7 +100,13 @@ public class MainActivity extends AppCompatActivity {
         dammamAirport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, MapActivity.class).putExtra("icaocode", "OEDF"));
+                Intent intent = new Intent(MainActivity.this, InformationsActivity.class);
+                intent.putExtra("title", "King Fahd International Airport");
+                intent.putExtra("body", "Dammam is the largest and capital city of the Eastern Province of Saudi Arabia. The city bases part of its economy around the oil industry, since it is a major administrative centre aside of being the main economic, social and cultural hub of the Eastern region. Given the mixture between cultures, the local cuisine is extremely rich with Yemeni, Lebanese, Syrian, Turkish, Pakistani and Filipino influences.");
+                intent.putExtra("icaocode", "OEDF");
+                intent.putExtra("longlat", "26.4683 49.7972");
+                startActivity(intent);
+                //startActivity(new Intent(MainActivity.this, MapActivity.class).putExtra("icaocode", "OEDF"));
             }
         });
 
@@ -108,7 +114,13 @@ public class MainActivity extends AppCompatActivity {
         istanbulAirport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, MapActivity.class).putExtra("icaocode", "LTFM"));
+                Intent intent = new Intent(MainActivity.this, InformationsActivity.class);
+                intent.putExtra("title", "Istanbul International Airport");
+                intent.putExtra("body", "Istanbul Airport is the new airport in the city and is considered as a huge achievement of the Turkish Government. Added to the two already existing airports of Istanbul (Ataturk Airport and Sabiha Gokcen International Airport), the new aviation hub has undertaken all the Ataturk Airport’s passenger flights from 10/29/18 and is expected to host more than 200 million passengers by 2025. Istanbul Airport is located at the Çatalca- Göktürk-Arnavutköy area, in the European side of the city, 40km from Taksim and 52km from Kadıköy. Set in the middle between Tayakadin and Akpinar village, it serves more than 350 domestic and international destinations in 110 countries while its duty-free area is one of the largest (if not the largest) worldwide.");
+                intent.putExtra("icaocode", "LTFM");
+                intent.putExtra("longlat", "41.2768  28.7302");
+                startActivity(intent);
+                //startActivity(new Intent(MainActivity.this, MapActivity.class).putExtra("icaocode", "LTFM"));
             }
         });
     }
@@ -146,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(String aVoid) {
             super.onPostExecute(aVoid);
             test.setText(lg + " " + lt);
-            //test.setVisibility(View.GONE);
+            test.setVisibility(View.GONE);
 
         }
     }
